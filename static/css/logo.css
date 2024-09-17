@@ -1,0 +1,84 @@
+#logo-css-container {
+    position: relative;
+
+    display: flex;
+    height: 100px;
+    width: 100px;
+    margin: 2em auto 3em;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 32%;
+    background: linear-gradient(0, lightgray 0%, gainsboro 100%);
+}
+
+#logo-css-container:after {
+    top: 100%;
+    content: 'webcactus';
+    position: absolute;
+    letter-spacing: 1px;
+}
+
+.logo-css {
+    position: absolute;
+    border-radius: 20px;
+}
+
+.logo-css.cactus-body {
+    background-color: white;
+}
+
+.logo-css.cactus-body#main {
+    height: 90%;
+    width: 37.6%;
+    border-radius: 20px 20px 15px 15px;
+}
+
+.logo-css.cactus-body#left-vertical {
+    top: 23.7%;
+    left: 5%;
+    height: 30.8%;
+    width: 18.8%;
+}
+
+.logo-css.cactus-body#right-vertical {
+    top: 42.5%;
+    right: 5%;
+    height: 30.8%;
+    width: 18.8%;
+}
+
+.logo-css.cactus-body#left-horizontal {
+    top: 42.5%;
+    left: 12%;
+    height: 18.8%;
+    width: 30%;
+}
+
+.logo-css.cactus-body#right-horizontal {
+    top: 61.3%;
+    right: 12%;
+    height: 18.8%;
+    width: 30%;
+}
+
+.logo-css.additional {
+    border-bottom: 4px solid white;
+}
+
+.logo-css.additional.big {
+    height: 34%;
+    width: 34%;
+}
+
+.logo-css.additional.big#b-left {
+    top: 27.2%;
+    left: 5%;
+    border-left: 4px solid white;
+}
+
+.logo-css.additional.big#b-right {
+    top: 46%;
+    right: 5%;
+    border-right: 4px solid white;
+}

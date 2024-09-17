@@ -1,0 +1,93 @@
+#homework-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3em;
+    text-align: right;
+    justify-content: center;
+}
+
+.homework-card {
+    z-index: 1;
+}
+
+.homework-card-link {
+    display: block;
+    width: 216px;
+    height: 320px;
+
+    color: black;
+    background-color: #f4f4f4;
+    border-radius: 2em;
+    box-shadow: 0 10px 26px 1px rgba(0, 0, 0, 0.1);
+
+    transition: 0.2s;
+}
+
+.homework-picture {
+    background-size: cover;
+    border-radius: 2em 2em 0 0;
+}
+
+.homework-card.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.homework-card:before {
+    position: absolute;
+    content: '';
+    z-index: -1;
+    display: block;
+    width: 216px;
+    height: 320px;
+
+    background-color: lightgray;
+    border-radius: 2em;
+    box-shadow: 0 10px 26px 1px rgba(0, 0, 0, 0.1);
+
+    transform: translate(0, 1.2em) rotate(-5deg);
+    transition: 0.2s;
+}
+
+.homework-card:hover .homework-card-link,
+.homework-card:focus .homework-card-link {
+    transform: scale(1.04);
+
+}
+
+.homework-card:hover:before,
+.homework-card:focus:before {
+    transform: translate(0.2em, 1.5em) scale(1.04) rotate(-8deg);
+}
+
+.homework-info {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    height: 3em;
+    margin: 0.5em 0;
+    padding: 0 1em;
+}
+
+.homework-info:first-of-type {
+    font-weight: 500;
+}
+
+.homework-info:last-of-type {
+    opacity: 0.75;
+}
+
+.homework-info:not(.overflow-data) .homework-skill {
+    margin-right: 0.5em;
+}
+
+.homework-info .homework-skill:last-of-type {
+    margin-right: 0;
+}
+
+.homework-info.overflow-data {
+    -webkit-line-clamp: 2;
+}

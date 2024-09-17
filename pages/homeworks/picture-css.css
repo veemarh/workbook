@@ -1,0 +1,232 @@
+#picture {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 4fr 1fr;
+    width: 200px;
+    height: 200px;
+
+    background: linear-gradient(180deg, lightskyblue 0%, white 80%);
+    border: 1px solid black;
+}
+
+.area-balloon {
+    grid-column: 1;
+    grid-row: 1;
+    align-content: center;
+    overflow: hidden;
+}
+
+.area-donkey {
+    grid-column: 2;
+    grid-row: 1;
+    align-content: end;
+}
+
+.area-grass {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    background-image: repeating-linear-gradient(120deg, yellow, yellow 10px, lightgreen 10px, lightgreen 20px);
+}
+
+.balloon {
+    position: absolute;
+    width: 40px;
+    height: 60px;
+
+    background: radial-gradient(at 70% 30%, #ffbbbb, red);
+    border-radius: 50% 50% 45% 45%;
+    transform: translateX(50%);
+}
+
+.balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 22px;
+
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 11px solid red;
+    border-radius: 50%;
+
+    transform: translateX(-50%);
+}
+
+.string {
+    position: relative;
+    width: 43px;
+    height: 120px;
+
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-bottom-color: green;
+    border-right-color: green;
+
+    transform: rotate(-25deg) translateX(-30px);
+}
+
+.donkey {
+    position: relative;
+    width: 80px;
+    height: 40px;
+    margin: 0 auto 17px;
+}
+
+.body {
+    position: absolute;
+    z-index: 1;
+    width: inherit;
+    height: inherit;
+
+    background: radial-gradient(at 10% 70%, lightgray, gray);
+    border: 1px solid gray;
+    border-radius: 50%;
+}
+
+.head {
+    position: relative;
+    top: -60%;
+    right: 40%;
+    z-index: 1;
+    width: 50px;
+    height: 30px;
+
+    background: radial-gradient(at 10% 30%, lightgray, gray);
+    border: 1px solid gray;
+    border-radius: 50%;
+
+    transform: rotate(-10deg);
+}
+
+.eye {
+    position: absolute;
+    right: 30%;
+    top: 25%;
+    width: 10px;
+    height: 10px;
+
+    background-color: white;
+    border-radius: 50%;
+}
+
+.eye:before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 6px;
+    height: 6px;
+
+    background-color: black;
+    border-radius: 50%;
+}
+
+.nose {
+    position: absolute;
+    left: 5%;
+    top: 35%;
+    width: 6px;
+    height: 6px;
+
+    background-color: dimgray;
+    border-radius: 50%;
+}
+
+.mouth {
+    position: absolute;
+    top: 30%;
+    left: 18%;
+    display: inline-block;
+
+    font-weight: 500;
+
+    color: dimgray;
+    transform: rotate(90deg);
+}
+
+.ear {
+    position: absolute;
+    top: -150%;
+    width: 16px;
+    height: 54px;
+
+    background: radial-gradient(at 10% 10%, lightgray, gray);
+    border: 1px solid gray;
+    border-radius: 50%;
+}
+
+.ear.left {
+    right: 70%;
+    transform: translateY(-8px) rotate(35deg);
+}
+
+.ear.right {
+    right: 50%;
+    transform: rotate(56deg);
+}
+
+.neck {
+    position: absolute;
+    top: -5px;
+    width: 19px;
+    height: 19px;
+
+    background-color: gray;
+    transform: rotate(-30deg);
+}
+
+.leg {
+    position: absolute;
+    width: 18px;
+    height: 0;
+
+    border-top: 25px solid gray;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+}
+
+.leg.front-left {
+    left: 10px;
+    transform: rotate(15deg);
+}
+
+.leg.front-right {
+    top: 32px;
+    left: 25px;
+}
+
+.leg.back-left {
+    top: 32px;
+    right: 10px;
+}
+
+.leg.back-right {
+    top: 25px;
+    right: -8px;
+    transform: rotate(-35deg);
+}
+
+.tail {
+    position: absolute;
+    top: -28px;
+    right: -18px;
+
+    line-height: 1;
+    font-size: 50px;
+    font-weight: 100;
+
+    color: gray;
+}
+
+.tail:after {
+    content: '';
+    position: absolute;
+
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 11px solid gray;
+    border-radius: 50%;
+
+    transform: translateX(-11px) translateY(8px) rotate(-75deg);
+}

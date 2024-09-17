@@ -1,0 +1,156 @@
+.data-view-container {
+    display: flex;
+    gap: 2em;
+}
+
+/* блок с аватаркой и функционалом */
+#avatar-space {
+    flex: 1 0;
+}
+
+#avatar-space img {
+    border-radius: 50%;
+}
+
+/* данные пользователя */
+#main-dataset {
+    flex: 3 0;
+}
+
+#main-dataset h2 {
+    margin-bottom: 0;
+}
+
+/* единица данных пользователя */
+.profile-block {
+    padding: 1em 0;
+    /*border-bottom: 1px solid rgba(0, 0, 0, 0.1);*/
+}
+
+/*.profile-block:last-of-type {*/
+/*    border: none;*/
+/*}*/
+
+/* контакты */
+.profile-connect {
+    display: flex;
+}
+
+.profile-connect::before {
+    content: '';
+    width: 1em;
+    height: 1em;
+    margin: auto 1em auto 0;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.profile-connect#profile-email::before {
+    background-image: url('../img/mail.svg');
+}
+
+.profile-connect#profile-phone::before {
+    background-image: url('../img/phone.svg');
+}
+
+.connect-link {
+    color: slateblue;
+}
+
+/* интересы */
+#profile-interests-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.profile-interest-name {
+    padding: 0.5em 1em;
+    background-color: gainsboro;
+    border-radius: 1em;
+}
+
+/* сервисы */
+#profile-service-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.one-profile-service {
+    display: flex;
+    padding: 3px 8px;
+    gap: 8px;
+
+    background-color: rgba(51, 51, 51, 0.03);
+}
+
+.one-profile-service > div {
+    padding: 8px 0;
+    line-height: 1;
+    hyphens: auto;
+}
+
+.profile-service-name {
+    flex: 1;
+    font-weight: bolder;
+    color: #ffba60;
+}
+
+.profile-service-desc {
+    flex: 3;
+}
+
+.profile-service-price {
+    flex: 1;
+}
+
+.profile-service-duration {
+    flex: 1;
+    text-align: end;
+}
+
+@media (max-width: 1140px) {
+    .account-content-wrapper {
+        max-width: 992px;
+    }
+}
+
+@media (max-width: 992px) {
+    .account-content-wrapper {
+        max-width: 768px;
+    }
+}
+
+@media (max-width: 768px) {
+    .account-content-wrapper {
+        max-width: 576px;
+        flex-direction: column;
+    }
+
+    .data-view-container {
+        flex-direction: column;
+    }
+
+    #avatar-space {
+        padding-bottom: 16px;
+    }
+
+    #avatar-space img {
+        max-width: 24vw;
+    }
+}
+
+/* напоминание о незаполненном профиле */
+/* для преподавателей */
+#fill-profile-notification {
+    padding: 10px;
+    margin-top: 16px;
+
+    color: indianred;
+    background-color: rgba(205, 92, 92, 0.1);
+    border: 1px solid indianred;
+    border-radius: 5px;
+}

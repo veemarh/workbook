@@ -1,0 +1,146 @@
+section {
+    transition: 0.5s;
+}
+
+.homepage-content-wrapper {
+    display: flex;
+    margin: 0 auto;
+    /*padding: 0 1em;*/
+    max-width: 1140px;
+}
+
+.homepage-content-spacing {
+    padding: 1em;
+    align-content: center;
+}
+
+.homepage-content-spacing .illustration {
+    border-radius: 2em;
+}
+
+.homepage-content-spacing span {
+    opacity: 0.75;
+}
+
+.homepage-content-spacing p {
+    font-size: 1.25em;
+}
+
+.homepage-link {
+    display: inline-block;
+    padding: 1em 2em;
+    margin-top: 1em;
+
+    color: #f4f4f4;
+    background-color: black;
+    border-radius: 1em;
+
+    transition: 0.2s;
+}
+
+.homepage-link:hover {
+    opacity: 0.75;
+}
+
+.homepage-spacer {
+    width: 100%;
+    height: 4em;
+}
+
+/* Первая секция */
+
+#usp,
+#poster {
+    flex: 1 0;
+}
+
+#usp {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+/* Вторая секция */
+
+#about .homepage-content-wrapper {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+#about-content {
+    flex: 2;
+}
+
+#about-picture {
+    flex: 1;
+}
+
+/* Третья секция */
+
+#feature-list,
+#feature-addition {
+    flex: 1;
+}
+
+.feature-point {
+    display: flex;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+.feature-point:last-child {
+    margin-bottom: 0;
+}
+
+.feature-icon {
+    flex-shrink: 0;
+    width: 2em;
+    height: 2em;
+    margin-right: 2em;
+}
+
+@media (max-width: 1140px) {
+    .homepage-content-wrapper {
+        max-width: 992px;
+    }
+}
+
+@media (max-width: 992px) {
+    .homepage-content-wrapper {
+        max-width: 768px;
+        flex-direction: column;
+    }
+
+    #usp {
+        padding-top: 80px;
+        padding-bottom: 1em;
+    }
+
+    #feature-addition {
+        display: none;
+    }
+
+    #about-content {
+        order: 1;
+    }
+
+    #about-picture {
+        order: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .homepage-content-wrapper {
+        max-width: 576px;
+    }
+
+    .homepage-content-spacing p {
+        font-size: 1em;
+    }
+}
+
+/* динамика */
+.hidden-dynamic-up {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(2em);
+}
