@@ -1,0 +1,168 @@
+<svg id="svgPicture" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0" y="0" width="200" height="200" fill="white" stroke="black" stroke-width="1"/>
+    <!--    <path id="path" fill="none" stroke="black" d="M 20 20 Q 200 50 100 100 M 180 180 Q 0 150 100 100"/>-->
+
+    <g id="letter-m">
+        <svg width="50" height="50" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="none"
+                  stroke="black"
+                  stroke-width="5"
+                  d="M 60 60 L 60 140"
+                  marker-start="url(#rectMarker)"
+                  marker-end="url(#rectMarker)"/>
+            <path fill="none"
+                  stroke="black"
+                  stroke-width="5"
+                  d="M 120 60 L 120 140"
+                  marker-start="url(#rectMarker)"
+                  marker-end="url(#rectMarker)"/>
+            <path fill="none"
+                  stroke="black"
+                  stroke-width="5"
+                  d="M 120 70 L 88.5 101"/>
+            <path fill="none"
+                  stroke="black"
+                  stroke-width="5"
+                  d="M 60 70 L 92 101"/>
+
+            <circle r="3" cx="60" cy="140" fill="white">
+                <animateMotion id="motionM"
+                               begin="svgPicture.click"
+                               dur="2s"
+                               repeatCount="1"
+                               path="M 0 0 L 0 -70 L 30 -41 L 60 -70 L 60 0"
+                               restart="whenNotActive"
+                />
+            </circle>
+        </svg>
+        <animateMotion id="letterMoveM"
+                       dur="6s"
+                       begin="svgPicture.mouseenter"
+                       repeatCount="1"
+                       fill="freeze"
+                       path="M 0 0 Q 175 25 90 75"
+                       restart="whenNotActive"
+        />
+        <animateTransform id="rotateM"
+                          attributeName="transform"
+                          begin="motionM.end"
+                          dur="3s"
+                          type="rotate"
+                          from="0 25 25"
+                          to="360 25 25"
+                          repeatCount="1"
+        />
+        <animateTransform id="translateM"
+                          attributeName="transform"
+                          begin="rotateM.end - 1s"
+                          dur="0.9s"
+                          type="translate"
+                          from="0 0"
+                          to="-10 -10"
+                          repeatCount="1"
+                          additive="sum"
+        />
+        <animateTransform attributeName="transform"
+                          begin="translateM.begin"
+                          dur="0.9s"
+                          type="scale"
+                          from="1"
+                          to="1.5"
+                          repeatCount="1"
+                          additive="sum"
+        />
+        <animate id="opacity"
+                 attributeName="opacity"
+                 begin="translateM.end - 0.3s"
+                 dur="0.3s"
+                 from="1"
+                 to="0"
+                 repeatCount="1"
+                 fill="freeze"
+        />
+        <animate attributeName="opacity"
+                 begin="opacity.end + 2s;letterMoveM.begin"
+                 dur="0.2s"
+                 to="1"
+                 repeatCount="1"
+                 fill="freeze"
+        />
+    </g>
+
+    <g id="letter-s">
+        <svg x="150" y="150" width="50" height="50" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="none"
+                  stroke="black"
+                  stroke-width="5"
+                  d="M 120 60 Q 60 60 60 100 Q 60 140 120 140"
+                  marker-start="url(#rectMarker)"
+                  marker-end="url(#rectMarker)"/>
+            <circle r="3" cx="120" cy="60" fill="white">
+                <animateMotion id="motionS"
+                               begin="svgPicture.click"
+                               dur="2s"
+                               repeatCount="1"
+                               path="M 0 0 Q -60 0 -60 40 Q -60 80 0 80"
+                               restart="whenNotActive"
+                />
+            </circle>
+        </svg>
+        <animateMotion id="letterMoveS"
+                       dur="6s"
+                       begin="svgPicture.mouseenter"
+                       repeatCount="1"
+                       fill="freeze"
+                       path="M 0 0 Q -175 -25 -90 -75"
+                       restart="whenNotActive"
+        />
+        <animateTransform id="rotateS"
+                          attributeName="transform"
+                          begin="motionS.end"
+                          dur="3s"
+                          type="rotate"
+                          from="0 175 175"
+                          to="360 175 175"
+                          repeatCount="1"
+        />
+        <animateTransform id="translateS"
+                          attributeName="transform"
+                          begin="rotateS.end - 1s"
+                          dur="0.9s"
+                          type="translate"
+                          from="0 0"
+                          to="-85 -85"
+                          repeatCount="1"
+                          additive="sum"
+        />
+        <animateTransform attributeName="transform"
+                          begin="translateS.begin"
+                          dur="0.9s"
+                          type="scale"
+                          from="1"
+                          to="1.5"
+                          repeatCount="1"
+                          additive="sum"
+        />
+        <animate id="opacity"
+                 attributeName="opacity"
+                 begin="translateS.end - 0.3s"
+                 dur="0.3s"
+                 from="1"
+                 to="0"
+                 repeatCount="1"
+                 fill="freeze"
+        />
+        <animate attributeName="opacity"
+                 begin="opacity.end + 2s;letterMoveS.begin"
+                 dur="0.2s"
+                 to="1"
+                 repeatCount="1"
+                 fill="freeze"
+        />
+    </g>
+
+    <marker id="rectMarker" viewBox="0 0 10 10" refX="1" refY="10" markerHeight="32" orient="auto">
+        <rect x="0" y="0" width="2" height="16" fill="black"/>
+    </marker>
+</svg>
+

@@ -18,26 +18,11 @@
 }
 
 #letter-m {
-    offset-path: path('M20 20 Q 200 50 100 100');
+    /*offset-path: path('M20 20 Q 200 50 100 100');*/
 }
 
 #letter-s {
-    offset-path: path('M180 180 Q 0 150 100 100');
-}
-
-.svg-letter {
-    position: relative;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-#letter-m .svg-letter {
-    background-image: url("letter-m.svg");
-}
-
-#letter-s .svg-letter {
-    background-image: url("letter-s.svg");
+    /*offset-path: path('M180 180 Q 0 150 100 100');*/
 }
 
 .way {
@@ -50,19 +35,19 @@
 }
 
 #way-m {
-    offset-path: path('M 15 35 L 15 17.5 L 23 25 L 30 17.5 L 30 35');
+    /*offset-path: path('M 15 35 L 15 17.5 L 23 25 L 30 17.5 L 30 35');*/
 }
 
 #way-s {
-    offset-path: path('M 30 15 Q 15 15 15 25 Q 15 35 30 35');
+    /*offset-path: path('M 30 15 Q 15 15 15 25 Q 15 35 30 35');*/
 }
 
 #flexbox-picture:hover #letter-s {
-    animation: hover-s 6s forwards;
+    /*animation: hover-s 6s forwards;*/
 }
 
 #flexbox-picture:hover #letter-m {
-    animation: hover-m 6s forwards;
+    /*animation: hover-m 6s forwards;*/
 }
 
 #flexbox-picture:active .way {
