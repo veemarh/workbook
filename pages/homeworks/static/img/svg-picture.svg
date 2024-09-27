@@ -1,6 +1,42 @@
 <svg id="svgPicture" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
     <rect x="0" y="0" width="200" height="200" fill="white" stroke="black" stroke-width="1"/>
-    <!--    <path id="path" fill="none" stroke="black" d="M 20 20 Q 200 50 100 100 M 180 180 Q 0 150 100 100"/>-->
+    <g id="image">
+        <image x="90" y="158" height="20" href="../../../../static/img/logo.svg"/>
+        <animate attributeName="opacity"
+                 begin="opacity.end + 2s"
+                 dur="0.2s"
+                 to="1"
+                 repeatCount="1"
+                 fill="freeze"
+        />
+        <animate attributeName="opacity"
+                 begin="0s;letterMoveM.begin"
+                 dur="0.2"
+                 from="0"
+                 to="0"
+                 repeatCount="1"
+                 fill="freeze"
+        />
+    </g>
+
+    <g id="text">
+        <text x="50" y="190" textLength="100" font-family="Sans-Serif" font-size="10">webcactus</text>
+        <animate attributeName="opacity"
+                 begin="opacity.end + 2s"
+                 dur="0.2s"
+                 to="1"
+                 repeatCount="1"
+                 fill="freeze"
+        />
+        <animate attributeName="opacity"
+                 begin="0s;letterMoveM.begin"
+                 dur="0.2"
+                 from="0"
+                 to="0"
+                 repeatCount="1"
+                 fill="freeze"
+        />
+    </g>
 
     <g id="letter-m">
         <svg width="50" height="50" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
