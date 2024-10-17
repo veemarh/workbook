@@ -1,0 +1,80 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аудиторная работа</title>
+</head>
+
+<style>
+    .disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+</style>
+
+<label for="number">Длина канавы (в метрах):</label><br>
+<input id="number" type="number" min="0" value="10">
+<button id="checkButton">Записать</button><br>
+<br>
+<label for="mechanized">Механизация:</label>
+<input id="mechanized" type="checkbox"><br>
+<br>
+<button id="calculateButton" class="disabled">Рассчитать количество землекопов</button><br>
+<br>
+<div id="result"></div>
+<img id="image"/>
+
+<script>
+    let nums = [];
+    const check = document.getElementById("checkButton");
+    const button = document.getElementById("calculateButton");
+    const numberInput = document.getElementById("number");
+    const mechanizedInput = document.getElementById("mechanized");
+    const resultDiv = document.getElementById("result");
+    const imageIMG = document.getElementById("image");
+
+    check.addEventListener("click", function () {
+        if (!numberInput.value) {
+            alert("Укажите длину канавы и повторите попытку.");
+            return;
+        }
+        nums.push(parseInt(numberInput.value));
+        if (nums.length === 3) {
+            check.classList.add("disabled");
+            button.classList.remove("disabled");
+        }
+    });
+
+    button.addEventListener("click", function () {
+        let length = 0;
+        for (let i = 0; i < nums.length; i++) {
+            length += nums[i];
+        }
+        const isMechanized = mechanizedInput.checked;
+
+        const calculateWorkers = new Function('length', 'isMechanized', `
+                const rate = isMechanized ? 4 : 3;
+                return Math.ceil(length / rate);
+            `);
+
+        const workersNeeded = calculateWorkers(length, isMechanized);
+        const brigadeType = isMechanized ? "механизированная" : "не механизированная";
+
+        if (confirm("Показать результат?")) {
+            resultDiv.innerHTML = `
+                    Длины канав: <strong>${nums[0]}м</strong>, <strong>${nums[1]}м</strong>, <strong>${nums[2]}м</strong><br>
+                    Суммарная длина канав: <strong>${length}м</strong><br>
+                    Тип бригады: <strong>${brigadeType}</strong><br>
+                    Необходимое количество землекопов: <strong>${workersNeeded}</strong>
+                `;
+            imageIMG.src = isMechanized ? "./static/img/землекоп2.png" : "./static/img/землекоп1.png";
+
+        } else {
+            resultDiv.innerHTML = "Бригада в отпуске.";
+            imageIMG.src = "./static/img/землекоп3.png";
+        }
+
+        nums = [];
+        check.classList.remove("disabled");
+        button.classList.add("disabled");
+    });
+</script>
