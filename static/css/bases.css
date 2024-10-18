@@ -297,6 +297,11 @@ nav {
     }
 }
 
+.spacer {
+    width: 100%;
+    height: 4em;
+}
+
 footer {
     padding: 10px 0;
     text-align: center;

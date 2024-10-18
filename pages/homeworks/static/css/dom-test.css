@@ -1,0 +1,143 @@
+#quiz {
+    width: 1448px;
+    max-width: 90%;
+    padding: 2em 0;
+    margin: 0 auto;
+    cursor: default;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1em;
+    padding: 2em;
+    background-color: #f4f4f4;
+    box-shadow: 0 20px 26px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 1em;
+}
+
+.stats {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    align-items: start;
+    padding: 2em;
+    background-color: #f4f4f4;
+    box-shadow: 0 20px 26px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 1em;
+}
+
+.block {
+    width: fit-content;
+    max-width: 256px;
+    padding: 0.5em 1em;
+    border-radius: 1em;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.block.question:hover {
+    background-color: rgba(218, 165, 32, 0.2);
+}
+
+.block.answer:hover {
+    background-color: rgba(143, 188, 143, 0.25);
+}
+
+.block:active {
+    box-shadow: dimgray 0 0 0 1px inset;
+}
+
+.marker-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: gainsboro 0 0 0 1px inset;
+}
+
+.title {
+    text-align: center;
+}
+
+#answers {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1em;
+    z-index: 1;
+}
+
+.answer {
+    position: relative;
+    background-color: rgba(143, 188, 143, 0.5);
+}
+
+#explanation {
+    color: #162e16;
+    background-color: #e1fae1;
+    pointer-events: none;
+}
+
+.question-text {
+    flex-shrink: 1;
+}
+
+.marker {
+    flex-shrink: 0;
+    width: 1em;
+    margin-left: 1em;
+}
+
+.svg {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.flag {
+    background-image: url("../img/flag.svg");
+}
+
+.cross {
+    background-image: url("../img/cross.svg");
+}
+
+.disable {
+    display: none !important;
+}
+
+.fun {
+    transform: scale(1.1);
+}
+
+.wrong {
+    animation: moveDown 1s forwards;
+}
+
+@keyframes moveDown {
+    0% {
+        top: 0;
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        top: 20vh;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.correct-answer {
+    display: inline-block;
+    background-color: rgba(143, 188, 143, 0.5);
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
