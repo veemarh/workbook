@@ -45,21 +45,21 @@ function loadQuestion() {
         answerBlock.classList.add('block', 'answer');
         answerBlock.setAttribute('id', `${i}`);
         answerBlock.textContent = shuffledAnswers[i];
-        answerBlock.addEventListener('click', () => handleAnswerClick(shuffledAnswers[i], currentQuestion, () => getQuestionCloneCallback(currentQuestion), event));
+        answerBlock.addEventListener('click', (event) => handleAnswerClick(currentQuestion, event));
         answers.append(answerBlock);
     }
 }
 
 // обрабатываем выбор ответа
-function handleAnswerClick(answer, question, callback, event) {
+function handleAnswerClick(currQuest, event) {
     // создаем маркер
     let svg = document.createElement('div');
     svg.classList.add('svg');
 
-    if (answer === question.right) {
+    if (event.target.textContent === currQuest.right) {
         svg.classList.add('flag');
         event.target.classList.add('fun');
-        explanation.textContent = question.explanation;
+        explanation.textContent = currQuest.explanation;
         explanation.classList.remove('disable');
     } else {
         svg.classList.add('cross');
@@ -67,7 +67,7 @@ function handleAnswerClick(answer, question, callback, event) {
 
     // роняем неправильные ответы
     for (let answerBlock of answers.children) {
-        if (answerBlock.textContent !== question.right || answerBlock !== event.target) {
+        if (answerBlock.textContent !== currQuest.right || answerBlock !== event.target) {
             setTimeout(() => {
                 answerBlock.classList.add('wrong');
             }, (answerBlock.getAttribute('id')) * 200);
@@ -77,23 +77,23 @@ function handleAnswerClick(answer, question, callback, event) {
 
     currentQuestionIndex++;
     setTimeout(loadQuestion, 2000);
-    callback(question);
+    getQuestionCloneCallback(currQuest);
 }
 
 // выводим ответ на вопрос
-function handleQuestionClick(wrapper, question) {
+function handleQuestionClick(wrapper, currQuest) {
     const answerDiv = document.createElement('div');
     answerDiv.classList.add('block', 'correct-answer');
-    answerDiv.textContent = question.right;
+    answerDiv.textContent = currQuest.right;
     wrapper.append(answerDiv);
 }
 
 // записываем в статистику
-function getQuestionCloneCallback(currQuestion) {
+function getQuestionCloneCallback(currQuest) {
     let wrapper = document.createElement('div');
     wrapper.classList.add('wrapper');
     let clone = question.parentElement.cloneNode(true);
-    clone.addEventListener('click', () => handleQuestionClick(wrapper, currQuestion), {once: true});
+    clone.addEventListener('click', () => handleQuestionClick(wrapper, currQuest), {once: true});
     wrapper.append(clone);
     stats.append(wrapper);
 }
@@ -102,51 +102,3 @@ function getQuestionCloneCallback(currQuestion) {
 function shuffleArray(arr) {
     return arr.sort(() => Math.random() - 0.5);
 }
-
-// вопросы
-const QUIZ = [
-    {
-        id: 0,
-        question: "А голос у него был не такой, как у почтальона Печкина, дохленький. У Гаврюши голосище был, как у электрички. Он _____ _____ на ноги поднимал.",
-        answers: [
-            "пол деревни, за раз",
-            "полдеревни, зараз",
-            "пол-деревни, за раз",
-        ],
-        right: "полдеревни, зараз",
-        explanation: "Правильно! Раздельно существительное будет писаться в случае наличия дополнительного слова между существительным и частицей. Правильный ответ: полдеревни пишется слитно. Зараз (ударение на второй слог) — это обстоятельственное наречие, пишется слитно. Означает быстро, одним махом.",
-    },
-    {
-        id: 1,
-        question: "А эти слова как пишутся?",
-        answers: [
-            "капуччино и эспрессо",
-            "каппуччино и экспресо",
-            "капучино и эспрессо",
-        ],
-        right: "капучино и эспрессо",
-        explanation: "Конечно! По орфографическим нормам русского языка единственно верным написанием будут «капучино» и «эспрессо».",
-    },
-    {
-        id: 2,
-        question: "Как нужно писать?",
-        answers: [
-            "черезчур",
-            "черес-чур",
-            "чересчур",
-        ],
-        right: "чересчур",
-        explanation: "Да! Это слово появилось от соединения предлога «через» и древнего слова «чур», которое означает «граница», «край». Но слово претерпело изменения, так что правильное написание учим наизусть — «чересчур».",
-    },
-    {
-        id: 3,
-        question: "Где допущена ошибка?",
-        answers: [
-            "аккордеон",
-            "белиберда",
-            "эпелепсия",
-        ],
-        right: "эпелепсия",
-        explanation: "Верно! Это слово пишется так: «эпИлепсия».",
-    }
-]
