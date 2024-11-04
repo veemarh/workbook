@@ -5,7 +5,6 @@ section {
 .homepage-content-wrapper {
     display: flex;
     margin: 0 auto;
-    /*padding: 0 1em;*/
     max-width: 1140px;
 }
 
@@ -19,7 +18,7 @@ section {
 }
 
 .homepage-content-spacing span {
-    opacity: 0.75;
+    color: rgba(0, 0, 0, 0.75);
 }
 
 .homepage-content-spacing p {
@@ -35,11 +34,12 @@ section {
     background-color: black;
     border-radius: 1em;
 
-    transition: 0.2s;
+    user-select: none;
+    transition: background-color 0.2s;
 }
 
 .homepage-link:hover {
-    opacity: 0.75;
+    background-color: rgba(0, 0, 0, 0.75);
 }
 
 /* Первая секция */

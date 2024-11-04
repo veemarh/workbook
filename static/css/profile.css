@@ -6,6 +6,9 @@
 /* блок с аватаркой и функционалом */
 #avatar-space {
     flex: 1 0;
+    align-self: flex-start;
+    box-shadow: 0 0 10px 1px gainsboro;
+    border-radius: 2em;
 }
 
 #avatar-space img {
@@ -24,12 +27,8 @@
 /* единица данных пользователя */
 .profile-block {
     padding: 1em 0;
-    /*border-bottom: 1px solid rgba(0, 0, 0, 0.1);*/
 }
 
-/*.profile-block:last-of-type {*/
-/*    border: none;*/
-/*}*/
 
 /* контакты */
 .profile-connect {
@@ -68,48 +67,37 @@
 
 .profile-interest-name {
     padding: 0.5em 1em;
-    background-color: gainsboro;
+    background-color: rgba(143, 188, 143, 0.5);
     border-radius: 1em;
 }
 
-/* сервисы */
-#profile-service-container {
+#profile-links-list {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 0.5em;
+    transition: 1s;
 }
 
-.one-profile-service {
+.profile-link {
     display: flex;
-    padding: 3px 8px;
-    gap: 8px;
+    align-items: center;
+    padding: 1em;
+    background-color: gainsboro;
+    border-radius: 1em;
+    color: inherit;
 
-    background-color: rgba(51, 51, 51, 0.03);
+    transition: 0.5s;
 }
 
-.one-profile-service > div {
-    padding: 8px 0;
-    line-height: 1;
-    hyphens: auto;
+.profile-link:hover {
+    background-color: rgba(220, 220, 220, 0.5);
 }
 
-.profile-service-name {
-    flex: 1;
-    font-weight: bolder;
-    color: #ffba60;
-}
-
-.profile-service-desc {
-    flex: 3;
-}
-
-.profile-service-price {
-    flex: 1;
-}
-
-.profile-service-duration {
-    flex: 1;
-    text-align: end;
+.link-icon {
+    flex-shrink: 0;
+    width: 2em;
+    height: 2em;
+    margin-right: 2em;
 }
 
 @media (max-width: 1140px) {
@@ -134,23 +122,7 @@
         flex-direction: column;
     }
 
-    #avatar-space {
-        padding-bottom: 16px;
-    }
-
     #avatar-space img {
-        max-width: 24vw;
+        width: 24vw;
     }
-}
-
-/* напоминание о незаполненном профиле */
-/* для преподавателей */
-#fill-profile-notification {
-    padding: 10px;
-    margin-top: 16px;
-
-    color: indianred;
-    background-color: rgba(205, 92, 92, 0.1);
-    border: 1px solid indianred;
-    border-radius: 5px;
 }

@@ -29,9 +29,9 @@
             <a class="menu-link" href="pages/coursework.html">Курсовая</a>
             <a class="menu-link" href="pages/profile.html">Профиль</a>
         </div>
-        <div id="nav-user">
+        <div>
             <div id="user-icon">
-                <img src="static/img/avatar.png" alt="avatar">
+                <img src="static/img/avatar.svg" alt="avatar">
             </div>
             <div id="user-popup-menu">
                 <p class="author-name">Сидоркина Мария</p>
@@ -144,28 +144,7 @@
     </div>
     &copy; 2024 webcactus.
 </footer>
-<script>
-    // весь контент, который помещается на странице, будет загружен сразу
-    window.addEventListener('DOMContentLoaded', () => {
-        let dynamicBlocks = document.querySelectorAll('.hidden-dynamic-up');
-        dynamicBlocks.forEach(block => {
-            let rect = block.getBoundingClientRect();
-            if (rect.top < window.innerHeight * 0.8) {
-                block.classList.remove('hidden-dynamic-up');
-            } else {
-                return 0;
-            }
-        });
-    });
-    // все остальное возникнет при прокрутке
-    window.addEventListener('scroll', () => {
-        let dynamicBlock = document.querySelector('.hidden-dynamic-up');
-        let rect = dynamicBlock.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.8) {
-            dynamicBlock.classList.remove('hidden-dynamic-up');
-        }
-    });
-</script>
 <script type="text/javascript" src="static/scripts/main.js"></script>
+<script type="text/javascript" src="static/scripts/home.js"></script>
 </body>
 </html>

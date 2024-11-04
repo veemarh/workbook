@@ -1,5 +1,3 @@
-/* nav-user не используется */
-
 body {
     display: flex;
     flex-direction: column;
@@ -14,6 +12,7 @@ main {
 
 header {
     position: relative;
+    user-select: none;
 }
 
 header[page=homepage] {
@@ -21,7 +20,7 @@ header[page=homepage] {
     flex-direction: column;
     flex-shrink: 0;
     height: 100vh;
-    background-image: url("/static/img/img1.jpg");
+    background-image: url("../img/img1.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -50,7 +49,6 @@ nav {
 #logo-container {
     display: flex;
     gap: 0.5em;
-    /* не влияет */
     align-items: center;
 }
 
@@ -70,13 +68,11 @@ nav {
 }
 
 .menu-link {
-    /* не влияет */
     display: block;
     padding: 0.5em;
+    color: inherit;
 
-    /* перенести */
-    color: black;
-    transition: opacity 0.2s, background-color 0.2s;
+    transition: opacity 0.2s;
 }
 
 .menu-link:hover {
@@ -240,11 +236,11 @@ nav {
     background-color: black;
     border-radius: 1em;
 
-    transition: opacity 0.2s;
+    transition: background-color 0.2s;
 }
 
 #user-link-to-profile:hover {
-    opacity: 0.75;
+    background-color: rgba(0, 0, 0, 0.75);
 }
 
 @media (max-width: 786px) {
@@ -281,7 +277,6 @@ nav {
     #nav-menu.active {
         right: 0;
     }
-
 
     #nav-menu .menu-link {
         padding: 0.5em 1em;

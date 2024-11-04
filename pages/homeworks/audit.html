@@ -1,28 +1,144 @@
+<html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Аудиторная работа</title>
+    <title>Домашние задания | Аудиторная работа</title>
+    <link rel="stylesheet" href="../../static/css/disable-default-styles.css">
+    <link rel="stylesheet" href="../../static/css/fonts.css">
+    <link rel="stylesheet" href="../../static/css/bases.css">
+    <link rel="stylesheet" href="../../static/css/logo.css">
 </head>
-
 <style>
+    label {
+        display: inline-block;
+        opacity: 0.75;
+        padding-bottom: 0.5em;
+    }
+
+    input,
+    button {
+        border-radius: 1em;
+    }
+
+    input {
+        padding: 1em;
+        outline: none;
+        box-shadow: 0 0 0 1px dimgray inset;
+    }
+
+    button {
+        padding: 1em 2em;
+        color: #f4f4f4;
+        background-color: black;
+        transition: 0.2s;
+    }
+
+    button:hover {
+        opacity: 0.75;
+    }
+
+    .audit-container {
+        padding: 2em;
+        background-color: #f4f4f4;
+        box-shadow: 0 20px 26px 16px rgba(0, 0, 0, 0.1);
+        border-radius: 1em;
+    }
+
+    #image {
+        margin-top: 1em;
+    }
+
     .disabled {
         opacity: 0.5;
         pointer-events: none;
     }
 </style>
-
-<label for="number">Длина канавы (в метрах):</label><br>
-<input id="number" type="number" min="0" value="10">
-<button id="checkButton">Записать</button><br>
-<br>
-<label for="mechanized">Механизация:</label>
-<input id="mechanized" type="checkbox"><br>
-<br>
-<button id="calculateButton" class="disabled">Рассчитать количество землекопов</button><br>
-<br>
-<div id="result"></div>
-<img id="image"/>
-
+<body>
+<header>
+    <nav>
+        <div id="nav-logo">
+            <a id="logo-container" class="menu-link" href="../../index.html">
+                <div id="logo-img">
+                    <img src="../../static/img/logo.svg" alt="logo">
+                </div>
+                <span id="logo-label">webcactus</span>
+            </a>
+        </div>
+        <div id="nav-menu">
+            <div id="author-info-block">
+                <span class="author-name">Сидоркина Мария</span>
+                <span class="author-email">sidorkina.ma@edu.spbstu.ru</span>
+            </div>
+            <a class="menu-link" href="../homeworks.html">Домашние задания</a>
+            <a class="menu-link" href="../coursework.html">Курсовая</a>
+            <a class="menu-link" href="../profile.html">Профиль</a>
+        </div>
+        <div>
+            <div id="user-icon">
+                <img src="../../static/img/avatar.svg" alt="avatar">
+            </div>
+            <div id="user-popup-menu">
+                <p class="author-name">Сидоркина Мария</p>
+                <p class="author-email">sidorkina.ma@edu.spbstu.ru</p>
+                <a id="user-link-to-profile" href="../../pages/profile.html">Профиль</a>
+            </div>
+        </div>
+        <div id="nav-toggle">
+            <div id="toggle-hamburger" class="active">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div id="toggle-arrow">
+                <div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div id="toggle-cross"></div>
+        </div>
+    </nav>
+</header>
+<main>
+    <section class="content-wrapper">
+        <h1>Аудиторная работа</h1>
+        <div class="content-body">
+            <div class="audit-container">
+                <h2>Задача про землекопов</h2>
+                <br>
+                <label id="label" for="number">Длина канавы #1 (в метрах):</label><br>
+                <input id="number" type="number" min="0" value="10">
+                <button id="checkButton">Записать</button>
+                <br>
+                <br>
+                <label for="mechanized">Механизация:</label>
+                <input id="mechanized" type="checkbox"><br>
+                <br>
+                <button id="calculateButton" class="disabled">Рассчитать количество землекопов</button>
+                <br>
+                <br>
+                <div id="result"></div>
+                <img id="image"/></div>
+        </div>
+    </section>
+</main>
+<footer>
+    <div id="logo-css-container">
+        <div class="logo-css cactus-body" id="main"></div>
+        <div class="logo-css cactus-body" id="left-vertical"></div>
+        <div class="logo-css cactus-body" id="right-vertical"></div>
+        <div class="logo-css cactus-body" id="left-horizontal"></div>
+        <div class="logo-css cactus-body" id="right-horizontal"></div>
+        <div class="logo-css additional big" id="b-left"></div>
+        <div class="logo-css additional big" id="b-right"></div>
+    </div>
+    &copy; 2024 webcactus.
+</footer>
+<script type="text/javascript" src="../../static/scripts/main.js"></script>
 <script>
     let nums = [];
     const check = document.getElementById("checkButton");
@@ -31,6 +147,7 @@
     const mechanizedInput = document.getElementById("mechanized");
     const resultDiv = document.getElementById("result");
     const imageIMG = document.getElementById("image");
+    const label = document.getElementById("label");
 
     check.addEventListener("click", function () {
         if (!numberInput.value) {
@@ -41,6 +158,9 @@
         if (nums.length === 3) {
             check.classList.add("disabled");
             button.classList.remove("disabled");
+            label.innerHTML = `Длина канавы #3 (в метрах):`
+        } else {
+            label.innerHTML = `Длина канавы #${nums.length + 1} (в метрах):`
         }
     });
 
@@ -76,5 +196,8 @@
         nums = [];
         check.classList.remove("disabled");
         button.classList.add("disabled");
+        label.innerHTML=`Длина канавы #1 (в метрах):`
     });
 </script>
+</body>
+</html>

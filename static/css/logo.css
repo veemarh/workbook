@@ -10,6 +10,8 @@
 
     border-radius: 32%;
     background: linear-gradient(0, lightgray 0%, gainsboro 100%);
+
+    transition: 0.2s;
 }
 
 #logo-css-container:after {
