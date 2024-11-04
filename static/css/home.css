@@ -44,8 +44,7 @@ section {
 
 /* Первая секция */
 
-#usp,
-#poster {
+#usp {
     flex: 1 0;
 }
 

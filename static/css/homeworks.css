@@ -99,3 +99,60 @@
 .homework-info.overflow-data {
     -webkit-line-clamp: 2;
 }
+
+.toggle-container {
+    padding: 1.5em 1em;
+    box-shadow: 0 10px 26px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5em 0.5em 3em 0.5em;
+}
+
+#toggle-content {
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+}
+
+#toggle-content.visible {
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+}
+
+#toggle-button {
+    display: inline-block;
+    padding: 0.5em 2em;
+    margin-top: 0.5em;
+
+    color: #f4f4f4;
+    background-color: black;
+    border-radius: 1em;
+
+    user-select: none;
+    transition: background-color 0.2s;
+}
+
+#toggle-button:hover {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.dl {
+    color: slateblue;
+}
+
+.homework-content {
+    display: flex;
+    gap: 2em;
+    flex-wrap: wrap;
+}
+
+.homework-content > * {
+    max-width: calc(100vw - 2em);
+}
+
+.desc {
+    flex: 1 0 500px;
+}
+
+.task {
+    flex: 0 0;
+}
