@@ -122,6 +122,10 @@
         flex-direction: column;
     }
 
+    #avatar-space {
+        border-radius: 1.5em;
+    }
+
     #avatar-space img {
         width: 24vw;
     }
