@@ -192,11 +192,6 @@ nav {
     border-radius: 50%;
 
     pointer-events: none;
-    transition: opacity 0.2s;
-}
-
-#user-icon:hover img {
-    opacity: 0.75;
 }
 
 #user-popup-menu {
@@ -301,6 +296,7 @@ footer {
     padding: 10px 0;
     text-align: center;
     line-height: 30px;
+    user-select: none;
 }
 
 .content-wrapper {

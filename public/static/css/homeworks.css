@@ -128,11 +128,6 @@
     border-radius: 1em;
 
     user-select: none;
-    transition: background-color 0.2s;
-}
-
-#toggle-button:hover {
-    background-color: rgba(0, 0, 0, 0.75);
 }
 
 .dl {
