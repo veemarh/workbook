@@ -1,5 +1,4 @@
 const button = document.getElementById("button");
-const b1 = document.getElementById("block-1");
 
 button.addEventListener("click", (evt) => {
     evt.preventDefault();
@@ -7,6 +6,7 @@ button.addEventListener("click", (evt) => {
     const input = document.getElementById("input");
     const b3 = document.getElementById("block-3");
     b3.innerHTML = "";
+    clearItemData();
 
     if (!input.value.trim()) return;
 
