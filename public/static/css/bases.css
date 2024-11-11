@@ -20,15 +20,16 @@ header[page=homepage] {
     flex-direction: column;
     flex-shrink: 0;
     height: 100vh;
-    background-image: url("../img/img1.jpg");
+    background-image: url("../img/img0001.png");
     background-size: cover;
-    background-position: center;
+    background-position: 37% center;
     background-repeat: no-repeat;
 }
 
 #header-section {
     flex-grow: 1;
     align-content: center;
+    padding: 0 1em 0.5em;
 }
 
 nav {
