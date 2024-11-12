@@ -3,35 +3,32 @@ const b1 = document.getElementById("block-1");
 function enableDragAndDrop(item) {
     let isDragging = false;
     let startX, startY;
+    let currentDroppable = null;
 
     item.addEventListener("mousedown", function (event) {
         isDragging = false;
         startX = event.clientX;
         startY = event.clientY;
-
-        let currentDroppable = null;
         let shiftX = event.clientX - item.getBoundingClientRect().left;
         let shiftY = event.clientY - item.getBoundingClientRect().top;
 
         item.classList.add("grabbing");
-        moveAt(event.pageX, event.pageY);
 
         function moveAt(pageX, pageY) {
-            item.style.left = pageX - shiftX + 'px';
-            item.style.top = pageY - shiftY + 'px';
+            const left = pageX - shiftX;
+            const top = pageY - shiftY;
+            item.style.setProperty('--left', `${left}px`);
+            item.style.setProperty('--top', `${top}px`);
         }
 
         function onMouseMove(event) {
             item.removeAttribute("data-click-available", true);
-
-            if (!isDragging) {
-                if (Math.abs(event.clientX - startX) > 1 || Math.abs(event.clientY - startY) > 1) {
-                    isDragging = true;
-                }
+            if (!isDragging && (Math.abs(event.clientX - startX) > 0 || Math.abs(event.clientY - startY) > 0)) {
+                isDragging = true;
+                item.classList.add("dragging");
             }
 
             if (isDragging) {
-                item.classList.add("dragging");
                 moveAt(event.pageX, event.pageY);
 
                 item.hidden = true;
@@ -56,7 +53,7 @@ function enableDragAndDrop(item) {
 
         function showItemData() {
             b1.textContent = item.textContent;
-            b1.style.color = item.getAttribute("data-color");
+            b1.style.setProperty('--color', item.getAttribute("data-color"));
         }
 
         document.addEventListener('mousemove', onMouseMove);
@@ -66,32 +63,35 @@ function enableDragAndDrop(item) {
             }
         }
 
-        item.onmouseup = function () {
+        document.addEventListener("mouseup", function onMouseUp() {
             document.removeEventListener('mousemove', onMouseMove);
-            if (isDragging && currentDroppable) {
-                currentDroppable.classList.remove("highlight");
-                item.style.backgroundColor = item.getAttribute("data-color");
-                setTimeout(() => {
-                    item.setAttribute("data-click-available", true);
-                }, 10)
-            } else if (isDragging) {
-                item.classList.remove("dragging");
-                item.style.left = '';
-                item.style.top = '';
-                item.style.backgroundColor = '';
+            document.removeEventListener("mouseup", onMouseUp);
+
+            if (isDragging) {
+                if (currentDroppable) {
+                    currentDroppable.classList.remove("highlight");
+                    item.style.setProperty('--color', item.getAttribute("data-color"));
+                    setTimeout(() => {
+                        item.setAttribute("data-click-available", true);
+                    }, 10)
+                } else {
+                    item.classList.remove("dragging");
+                    item.style.removeProperty('--left');
+                    item.style.removeProperty('--top');
+                    item.style.removeProperty('--color');
+                }
             }
+
+
             item.classList.remove("grabbing");
             currentDroppable = null;
-            item.onmouseup = null;
-        };
+        }, {once: true});
     });
 
-    item.ondragstart = function () {
-        return false;
-    };
+    item.ondragstart = () => false;
 }
 
 function clearItemData() {
     b1.textContent = '';
-    b1.style.color = '';
+    b1.style.removeProperty('--color');
 }

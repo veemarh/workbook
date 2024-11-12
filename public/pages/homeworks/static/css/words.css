@@ -1,3 +1,9 @@
+:root {
+    --color: gainsboro;
+    --top: 0px;
+    --left: 0px;
+}
+
 .form {
     display: flex;
     flex-direction: column;
@@ -53,7 +59,7 @@
 .word {
     z-index: 20;
     padding: 0.5em 1em;
-    background-color: gainsboro;
+    background-color: var(--color);
     border-radius: 1em;
     font-size: 14px;
     cursor: grab;
@@ -81,6 +87,7 @@
     margin-top: 2em;
     width: 100%;
     height: 20px;
+    color: var(--color);
 }
 
 label {
@@ -120,13 +127,15 @@ button:hover {
 .dragging {
     position: absolute;
     z-index: 1000;
+    left: var(--left);
+    top: var(--top);
 }
 
 .grabbing {
     cursor: grabbing;
 }
 
-#block-2:before {
+.heap:before {
     content: '';
     position: relative;
     display: block;
@@ -138,5 +147,16 @@ button:hover {
 }
 
 .highlight:before {
+    background-color: rgba(228, 203, 158, 0.75);
     box-shadow: inset 0 0 10px dimgray;
+}
+
+@media (max-width: 556px) {
+    .user {
+        order: 1;
+    }
+
+    .heap {
+        order: 2;
+    }
 }
