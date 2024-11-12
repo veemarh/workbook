@@ -52,7 +52,7 @@ function enableDragAndDrop(item) {
         }
 
         function showItemData() {
-            b1.textContent = item.textContent;
+            b1.value = item.textContent;
             b1.style.setProperty('--color', item.getAttribute("data-color"));
         }
 
@@ -75,13 +75,9 @@ function enableDragAndDrop(item) {
                         item.setAttribute("data-click-available", true);
                     }, 10)
                 } else {
-                    item.classList.remove("dragging");
-                    item.style.removeProperty('--left');
-                    item.style.removeProperty('--top');
-                    item.style.removeProperty('--color');
+                    resetItemStyle(item);
                 }
             }
-
 
             item.classList.remove("grabbing");
             currentDroppable = null;
@@ -92,6 +88,22 @@ function enableDragAndDrop(item) {
 }
 
 function clearItemData() {
-    b1.textContent = '';
+    b1.value = '';
     b1.style.removeProperty('--color');
+}
+
+function resetItemStyle(item) {
+    item.classList.remove("dragging");
+    item.style.removeProperty('--left');
+    item.style.removeProperty('--top');
+    item.style.removeProperty('--color');
+}
+
+function resetAllItems() {
+    const items = document.querySelectorAll('.word');
+    items.forEach(item => {
+        resetItemStyle(item);
+        item.removeAttribute("data-click-available");
+    });
+    clearItemData();
 }

@@ -64,7 +64,7 @@
     <section class="content-wrapper">
         <div class="form">
             <h2 class="title">Задание "Слова"</h2>
-            <div class="form-inner">
+            <div class="form-inner" id="block-3-container">
                 <div class="block inline">
                     <div class="block-inner" id="block-3"></div>
                 </div>
@@ -74,13 +74,16 @@
                 <div class="block user">
                     <div>
                         <div class="user-space">
-                            <label for="input">Формат строки: слово1-слово2-слово3</label>
+                            <label for="input">Формат: слово1-слово2-слово3</label>
                             <div class="input">
                                 <input placeholder="Напиши что-нибудь..." id="input" type="text">
                                 <button id="button">Разобрать</button>
                             </div>
+                            <div class="output">
+                                <input type="text" id="block-1">
+                                <label for="block-1">Кликнутое слово</label>
+                            </div>
                         </div>
-                        <div class="preview" id="block-1"></div>
                     </div>
                 </div>
             </div>
@@ -102,5 +105,6 @@
 <script type="text/javascript" src="../../static/scripts/main.js"></script>
 <script type="text/javascript" src="./static/scripts/words.js"></script>
 <script type="text/javascript" src="./static/scripts/drag-and-drop.js"></script>
+<script type="text/javascript" src="./static/scripts/get-array.js"></script>
 </body>
 </html>
