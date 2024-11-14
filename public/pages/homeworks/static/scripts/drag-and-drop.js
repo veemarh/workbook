@@ -52,8 +52,9 @@ function enableDragAndDrop(item) {
         }
 
         function showItemData() {
-            b1.value = item.textContent;
-            b1.style.setProperty('--color', item.getAttribute("data-color"));
+            const word = item.getAttribute("data-word");
+            const color = item.getAttribute("data-color");
+            addNewItemData(word, color);
         }
 
         document.addEventListener('mousemove', onMouseMove);
@@ -88,8 +89,7 @@ function enableDragAndDrop(item) {
 }
 
 function clearItemData() {
-    b1.value = '';
-    b1.style.removeProperty('--color');
+    b1.innerHTML = '';
 }
 
 function resetItemStyle(item) {
@@ -106,4 +106,12 @@ function resetAllItems() {
         item.removeAttribute("data-click-available");
     });
     clearItemData();
+}
+
+function addNewItemData(word, color) {
+    const element = document.createElement("div");
+    element.classList.add("text");
+    element.textContent = word;
+    element.style.setProperty('--color', color);
+    b1.append(element);
 }

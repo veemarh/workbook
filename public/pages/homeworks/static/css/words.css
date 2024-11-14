@@ -67,8 +67,7 @@
 }
 
 .user-space,
-.input,
-.output {
+.input {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -78,19 +77,21 @@
     gap: 1em;
 }
 
-.output {
-    flex-direction: column;
+.preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em 1em;
+        padding: 0.5em 1em;
     margin-top: 2em;
-    gap: 0.25em;
+    width: 100%;
+    min-height: 37px;
+    align-items: center;
+    border-left: 1px solid gainsboro;
 }
 
 .user-space {
     flex-direction: column;
     gap: 0.25em;
-}
-
-#block-1 {
-    color: var(--color);
 }
 
 label {
@@ -100,7 +101,7 @@ label {
 }
 
 input {
-    flex: 1 0;
+    flex: 1 0 240px;
     max-width: 100%;
     padding: 0.5em 1em;
     border-radius: 0.5em;
@@ -166,4 +167,10 @@ button:hover {
     #block-3-container {
         order: 3;
     }
+}
+
+.text {
+    color: var(--color);
+    font-size: 14px;
+    user-select: none;
 }
