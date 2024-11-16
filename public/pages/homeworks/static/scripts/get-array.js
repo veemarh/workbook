@@ -10,16 +10,18 @@ function getAssociativeArray(str) {
         return;
     }
 
+    const isNumber = /^\d+$/;
+    const isLowercaseWord = /^[a-z]+$/;
+    const isUppercaseWord = /^[A-Z][a-z]*$/;
+
     words.forEach(word => {
-        if (!isNaN(word)) {
+        word = word.trim();
+        if (isNumber.test(word)) {
             numbers.push(Number(word));
-        } else {
-            const firstChar = word[0];
-            if (firstChar === firstChar.toLowerCase()) {
-                lowercaseWords.push(word);
-            } else if (firstChar === firstChar.toUpperCase()) {
-                uppercaseWords.push(word);
-            }
+        } else if (isLowercaseWord.test(word)) {
+            lowercaseWords.push(word);
+        } else if (isUppercaseWord.test(word)) {
+            uppercaseWords.push(word);
         }
     });
 
